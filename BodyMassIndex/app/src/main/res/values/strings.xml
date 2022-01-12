@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Romanric Akam</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="calculate">Calculate BMI</string>
+
+
+    <string name="very_severely_underweight">Very severely underweight</string>
+    <string name="severely_underweight">Severely Underweight</string>
+    <string name="underweight">Underweight</string>
+    <string name="normal">Normal</string>
+    <string name="overweight">Overweight</string>
+    <string name="obese_class_i">Obese Class I</string>
+    <string name="obese_class_ii">Obese Class II</string>
+    <string name="obese_class_iii">Obese Class III</string>
+
+</resources>
