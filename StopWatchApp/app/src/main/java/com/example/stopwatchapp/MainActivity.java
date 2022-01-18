@@ -1,58 +1,71 @@
 package com.example.stopwatchapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+    private int seconds = 0;
+    private boolean startRun;
 
-            //start of new type of code, use of onclicklistener
 
-            Button start =   findViewById(R.id.start);
-            Button stop =  findViewById(R.id.stop);
-            Button reset =   findViewById(R.id.reset);
-
-            start.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                  // Start(v);
-                }
-            });
-
-            stop.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                   //Stop(v);
-                }
-            });
-
-            reset.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    //Reset(v);
-                }
-            });
-        }
-
-        //TextView time = findViewById(R.id.timebox);
-
-      /* public void Start(View v){
-
-       }
-
-        public void Stop(View v){
-            //count =  2;
-        }
-
-       public void Reset(View v){
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        /*if(savedInstanceState != null){
+            seconds = savedInstanceState.getInt("seconds");
+            startRun=savedInstanceState.getBoolean("startRun");
         }*/
 
+        Timer();
+
+    }
+
+    /*public void onSaveInstanceState(Bundle saveInstanceState){
+        saveInstanceState.putInt("seconds", seconds);
+        saveInstanceState.putBoolean("startRun", startRun);
+    }*/
+
+    public void onClickStart(View view){
+        startRun=true;
+    }
+
+    public void onClickStop(View view){
+        startRun=false;
+    }
+
+    public void onClickReset(View view){
+        startRun=false;
+        seconds=0;
+    }
+
+    private void Timer(){
+        final TextView timeView = findViewById(R.id.timebox);
+
+        final Handler handler = new Handler();
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                //int hours = seconds / 3600;
+                int minutes = (seconds % 3600)/60;
+                int secs = seconds % 60;
+
+                String time = String.format("%02d:%02d", minutes, secs);
+
+                timeView.setText(time);
+
+                if(startRun){
+                    seconds++;
+                }
+
+                handler.postDelayed(this, 100);
+            }
+        });
+
+    }
 }
