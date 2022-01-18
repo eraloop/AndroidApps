@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SendMessage</string>
+
+    <string name="message_head">Message to John</string>
+    <string name="message">Message</string>
+    <string name="phone_number">Phone</string>
+    <string name="send">Send</string>
 </resources>
