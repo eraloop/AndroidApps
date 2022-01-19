@@ -18,17 +18,9 @@ public class ReceiveMessageActivity extends Activity{
 
             Intent intent = getIntent();
             String message  = intent.getStringExtra("message");
-
-            processMessage(message);
-
-        }
-
-        public void processMessage(String message){
-
             TextView handler = (TextView) findViewById(R.id.view);;
             String combinedMessage = "'from Marry\n'+" + message;
             handler.setText(combinedMessage);
         }
-
 
 }
