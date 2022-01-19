@@ -9,13 +9,26 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class ReceiveMessageActivity  extends Activity{
+public class ReceiveMessageActivity extends Activity{
 
-        Intent intent = getIntent();
-        String message  = intent.getStringExtra("message");
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_receive_message);
 
-        TextView text_area = findViewById(R.id.receive_box);
+            Intent intent = getIntent();
+            String message  = intent.getStringExtra("message");
 
-    //String combinedMessage = "'from Marry\n'+" + message;
-    //handle.setText(combinedMessage);
+            processMessage(message);
+
+        }
+
+        public void processMessage(String message){
+
+            TextView handler = (TextView) findViewById(R.id.view);;
+            String combinedMessage = "'from Marry\n'+" + message;
+            handler.setText(combinedMessage);
+        }
+
+
 }

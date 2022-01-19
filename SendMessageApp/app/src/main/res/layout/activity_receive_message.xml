@@ -6,12 +6,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/receive_box"
-        android:layout_width="343dp"
-        android:layout_height="156dp"
+        android:id="@+id/view"
+        android:layout_width="213dp"
+        android:layout_height="128dp"
         android:text="TextView"
         android:textSize="30sp"
-        android:textAlignment="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
