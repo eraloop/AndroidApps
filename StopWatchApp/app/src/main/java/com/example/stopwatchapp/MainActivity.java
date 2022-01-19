@@ -39,8 +39,8 @@ public class MainActivity extends Activity {
     }
 
     public void onClickReset(View view){
-        startRun=false;
-        seconds=0;
+        startRun = false;
+        seconds = 0;
     }
 
     private void Timer(){
